@@ -17,7 +17,7 @@ ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
 #Creacion de Ventana y Dimensiones
 window = tkinter.Tk()
-window.title("Text File Generator")
+window.title("TXT Creator")
 window.resizable(False, False)
 window.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\Python\TXTGen\TXTGenerator\icono.ico")
 window.geometry("800x600")
@@ -31,6 +31,17 @@ label.pack()
 
 name_input = tkinter.Entry(window,  font = "arial")
 name_input.pack()
+
+#Ruta de Guardado Custom
+label = tkinter.Label(window, text = "Ruta de Guardado", font = "arial")
+label.pack()
+
+file_input = tkinter.Entry(window)
+file_input.pack()
+
+
+
+
 
 while not name_input:
     msg = tkinter.Label(window,text = "Por favor rellene esta casilla: Nombre de Archivo!")
@@ -48,17 +59,29 @@ window.protocol("WM_DELETE_WINDOW", on_close)
 #Compureba que haya un nombre escrito para el archivo
 
 def filename():
+    #Re-Declaracion de variables para ser utilizadas localmente en la funcion filename()
     name_doc = name_input.get()
+    file_path = file_input.get()
+    
     if not name_doc:
-        msg = tkinter.Label(window,text = "Por favor rellene esta casilla: Nombre de Archivo!", font = "arial", bg = "red")
+        msg = tkinter.Label(window,text = "Por favor rellene casilla => Nombre del Archivo!", font = "arial", bg = "red")
         msg.pack(fill = tkinter.X)
         msg.pack()
         window.after(1500, msg.destroy) 
+        
+    #Comprueba una ruta valida
+    elif not file_path or not os.path.exists(file_path):
+        # Verificar si la ruta de archivo es válida
+        msg = tkinter.Label(window,text = "Por favor rellene casilla => Ruta del Archivo!", font = "arial", bg = "red")
+        msg.pack(fill = tkinter.X)
+        msg.pack()
+        window.after(1500, msg.destroy)
     else:
         print(name_doc)
         file_name = name_input.get()
-        file_path = r"C:\Users\cepc2\OneDrive\Desktop"
+        file_path = file_input.get() # Obtener la ruta de archivo del widget Entry
         create_file(file_path, file_name)
+
 
     
 
