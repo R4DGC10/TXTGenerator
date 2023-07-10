@@ -19,7 +19,7 @@ ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 window = tkinter.Tk()
 window.title("Text File Generator")
 window.resizable(False, False)
-window.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\Python\TXTGen\TXTGenerator\icono.ico")
+window.iconbitmap(r"Your Icon .ico path")
 window.geometry("800x600")
 
 #Contenido
@@ -57,7 +57,7 @@ def filename():
     else:
         print(name_doc)
         file_name = name_input.get()
-        file_path = r"C:\Users\cepc2\OneDrive\Desktop"
+        file_path = r"Generate .txt file path"
         create_file(file_path, file_name)
 
     
