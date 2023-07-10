@@ -17,9 +17,9 @@ ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
 #Creacion de Ventana y Dimensiones
 window = tkinter.Tk()
-window.title("TXT Creator")
+window.title("Text File Generator")
 window.resizable(False, False)
-window.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\Python\TXTGen\icono.ico")
+window.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\Python\TXTGen\TXTGenerator\icono.ico")
 window.geometry("800x600")
 
 #Contenido
