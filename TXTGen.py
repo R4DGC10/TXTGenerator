@@ -20,14 +20,17 @@ window = tkinter.Tk()
 window.title("TXT Creator")
 window.resizable(False, False)
 window.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\Python\TXTGen\TXTGenerator\icono.ico")
-window.geometry("800x600")
+window.geometry("500x300")
 
 #Contenido
-title_main = tkinter.Label(window, text = ".txt file Generator", font = "arial", bg = "green")
+title_main = tkinter.Label(window, text = ".T3XT file Generator || Generador de Archivos de Texto", font = "arial", bg = "green")
 title_main.pack(fill = tkinter.X)
 
 label = tkinter.Label(window, text = "Ingrese el nombre del archivo a generar", font = "arial")
 label.pack()
+
+label = tkinter.Label(window, text = "cpacheco_c", font = "arial")
+label.pack(side = "bottom")
 
 name_input = tkinter.Entry(window,  font = "arial")
 name_input.pack()
@@ -39,14 +42,6 @@ label.pack()
 file_input = tkinter.Entry(window)
 file_input.pack()
 
-
-
-
-
-while not name_input:
-    msg = tkinter.Label(window,text = "Por favor rellene esta casilla: Nombre de Archivo!")
-    name_input = tkinter.Entry(window)
-    name_input.pack()
 
 #Pop Up al intentar cerrar
 def on_close():
@@ -81,6 +76,12 @@ def filename():
         file_name = name_input.get()
         file_path = file_input.get() # Obtener la ruta de archivo del widget Entry
         create_file(file_path, file_name)
+        msg_correct = tkinter.Label(window,text = "Archivo Generado Exitosamente :) en " + file_path , font = "arial", bg = "green")
+        msg_correct.pack(fill = tkinter.X)
+        msg_correct.pack()
+        window.after(1000, msg_correct.destroy)
+
+
 
 
     
