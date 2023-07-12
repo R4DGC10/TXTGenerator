@@ -1,8 +1,10 @@
 import tkinter
+import tkinter as tk
 import os
 import time
 from tkinter import *
 from tkinter import ttk
+from PIL import ImageTk, Image 
 
 from tkinter import messagebox
 
@@ -15,12 +17,21 @@ ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
 
 
+
 #Creacion de Ventana y Dimensiones
 window = tkinter.Tk()
 window.title("TXT Creator")
 window.resizable(False, False)
 window.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\Python\TXTGen\TXTGenerator\icono.ico")
 window.geometry("500x300")
+
+#COORDENADAS
+coordenada_x = window.winfo_x()
+coordenada_y = window.winfo_y()
+
+print("Coordenada X:", coordenada_x)
+print("Coordenada Y:", coordenada_y)
+
 
 #Contenido
 title_main = tkinter.Label(window, text = ".T3XT file Generator || Generador de Archivos de Texto", font = "arial", bg = "green")
@@ -34,6 +45,8 @@ label.pack(side = "bottom")
 
 name_input = tkinter.Entry(window,  font = "arial")
 name_input.pack()
+
+
 
 #Ruta de Guardado Custom
 label = tkinter.Label(window, text = "Ruta de Guardado", font = "arial")
@@ -89,6 +102,7 @@ def filename():
 Confirm1_button = tkinter.Button(window, text = "Confirmar", command = filename)
 Confirm1_button.pack()
 
+
 #Obtiene Hora
 current = time.strftime("%D:%Y:%H:%M:%S", time.localtime())
 print(current)
@@ -102,6 +116,15 @@ def create_file(file_path, file_name):
         file.write(file_content +"\n")
         file.write(file_c2+"\n")
 
+
+#Añadir imagen, requisito pip install pillow
+logo = Image.open(r"C:\Users\cepc2\OneDrive\Pictures\pfp\Profile IG.jpg")
+logo = logo.resize((100, 100))
+logo_tk = ImageTk.PhotoImage(logo)
+
+
+pic_logo = tk.Label(window, image=logo_tk)
+pic_logo.place(x=30,y=70)
 
 
 
