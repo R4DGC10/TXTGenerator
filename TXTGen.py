@@ -5,9 +5,7 @@ import time
 from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk, Image 
-
 from tkinter import messagebox
-
 
 
 #Icono del Taskbar
@@ -15,38 +13,57 @@ import ctypes
 myappid = 'mycompany.myproduct.subproduct.version' # arbitrary string
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
-
-
-
 #Creacion de Ventana y Dimensiones
 window = tkinter.Tk()
 window.title("TXT Creator")
 window.resizable(False, False)
-window.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\Python\TXTGen\TXTGenerator\icono.ico")
+window.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\CodePy\TXTGen\TXTGenerator\icono.ico")
 window.geometry("500x300")
 
 #COORDENADAS
 coordenada_x = window.winfo_x()
 coordenada_y = window.winfo_y()
 
-print("Coordenada X:", coordenada_x)
-print("Coordenada Y:", coordenada_y)
+#print("Coordenada X:", coordenada_x)
+#print("Coordenada Y:", coordenada_y)
 
 
 #Contenido
-title_main = tkinter.Label(window, text = ".T3XT file Generator || Generador de Archivos de Texto", font = "arial", bg = "green")
+title_main = tkinter.Label(window, text = ".txt file Generator || Generador de Archivos de Texto", font = "arial", bg = "green")
 title_main.pack(fill = tkinter.X)
 
 label = tkinter.Label(window, text = "Ingrese el nombre del archivo a generar", font = "arial")
 label.pack()
 
+#PopUp  (About Button)
+def pop_window():
+   
+    AboutWindow = Toplevel()
+    AboutWindow.title("Acerca de")
+    AboutWindow.resizable(False, False)
+    AboutWindow.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\CodePy\TXTGen\TXTGenerator\icono.ico")
+    AboutWindow.geometry("200x200")
+    
+    about_msg = tkinter.Label(AboutWindow, text="Developed by cpacheco_c 2023")
+    about_msg2 = tkinter.Label(AboutWindow, text="Learning Purposes")
+    about_msg.pack()
+    about_msg2.pack()
+    button = tk.Button(AboutWindow, text="Cerrar", command=AboutWindow.destroy)
+    button.pack(pady=5)
+
+
+    
+
+
+credits_popup = tkinter.Button(window, text = "Acerca de", command = pop_window)
+credits_popup.pack(side="bottom")
+
 label = tkinter.Label(window, text = "cpacheco_c", font = "arial")
 label.pack(side = "bottom")
 
+
 name_input = tkinter.Entry(window,  font = "arial")
 name_input.pack()
-
-
 
 #Ruta de Guardado Custom
 label = tkinter.Label(window, text = "Ruta de Guardado", font = "arial")
@@ -94,10 +111,6 @@ def filename():
         msg_correct.pack()
         window.after(1000, msg_correct.destroy)
 
-
-
-
-    
 
 Confirm1_button = tkinter.Button(window, text = "Confirmar", command = filename)
 Confirm1_button.pack()
