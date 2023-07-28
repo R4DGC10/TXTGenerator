@@ -18,7 +18,7 @@ ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 window = tkinter.Tk()
 window.title("TXT Creator")
 window.resizable(False, False)
-window.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\CodePy\TXTGen\TXTGenerator\icono.ico")
+window.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\CodePy\TXTGen\TXTGenerator\icono_new.ico")
 window.geometry("500x300")
 
 #COORDENADAS
@@ -42,7 +42,7 @@ def pop_window():
     AboutWindow = Toplevel()
     AboutWindow.title("Acerca de")
     AboutWindow.resizable(False, False)
-    AboutWindow.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\CodePy\TXTGen\TXTGenerator\icono.ico")
+    AboutWindow.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\CodePy\TXTGen\TXTGenerator\icono_new.ico")
     AboutWindow.geometry("200x200")
     
     about_msg = tkinter.Label(AboutWindow, text="Developed by cpacheco_c 2023")
