@@ -1,4 +1,5 @@
 import tkinter
+
 import tkinter as tk
 import os
 import time
@@ -45,7 +46,7 @@ def pop_window():
     AboutWindow.geometry("200x200")
     
     about_msg = tkinter.Label(AboutWindow, text="Developed by cpacheco_c 2023")
-    about_msg2 = tkinter.Label(AboutWindow, text="Learning Purposes")
+    about_msg2 = tkinter.Label(AboutWindow, text="tk")
     about_msg.pack()
     about_msg2.pack()
     button = tk.Button(AboutWindow, text="Cerrar", command=AboutWindow.destroy)
@@ -122,12 +123,13 @@ print(current)
 
 def create_file(file_path, file_name):
     generated_time = current
-    file_content = "Archivo Generado via Python/tkinter => " + file_name 
-    file_c2 = "Date =>   " + generated_time 
+    file_content = "Archivo Generado mediante TXTGenerator => " + file_name 
+    file_c2 = "Fecha de Creacion =>   " + generated_time 
     
     with open(os.path.join(file_path, file_name), 'w' ) as file:
         file.write(file_content +"\n")
         file.write(file_c2+"\n")
+        file.write("TXTGenerator_cpacheco_c_2023")
 
 
 #Añadir imagen, requisito pip install pillow
