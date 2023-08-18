@@ -1,5 +1,5 @@
 import tkinter
-
+#Librerias 
 import tkinter as tk
 import os
 import time
