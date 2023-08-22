@@ -133,9 +133,10 @@ def create_file(file_path, file_name):
 
 
 #Añadir imagen, requisito pip install pillow
-logo = Image.open(r"C:\Users\cepc2\OneDrive\Pictures\pfp\Profile IG.jpg")
+logo = Image.open(r"C:\Users\cepc2\OneDrive\Desktop\Projects\CodePy\TXTGen\TXTGenerator\icono_new.ico")
 logo = logo.resize((100, 100))
 logo_tk = ImageTk.PhotoImage(logo)
+
 
 
 pic_logo = tk.Label(window, image=logo_tk)
