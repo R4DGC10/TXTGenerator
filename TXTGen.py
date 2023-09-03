@@ -1,3 +1,5 @@
+
+from logging import root
 import tkinter
 #Librerias 
 import tkinter as tk
@@ -16,10 +18,11 @@ ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
 #Creacion de Ventana y Dimensiones
 window = tkinter.Tk()
-window.title("TXT Creator")
+window.title("TXT Generator (Closed Developer)")
 window.resizable(False, False)
 window.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\CodePy\TXTGen\TXTGenerator\icono_new.ico")
 window.geometry("500x300")
+window.configure(bg="white")
 
 #COORDENADAS
 coordenada_x = window.winfo_x()
@@ -29,13 +32,14 @@ coordenada_y = window.winfo_y()
 #print("Coordenada Y:", coordenada_y)
 
 
+
 #Contenido
 title_main = tkinter.Label(window, text = ".txt file Generator || Generador de Archivos de Texto", font = "arial", bg = "green")
 title_main.pack(fill = tkinter.X)
 
-label = tkinter.Label(window, text = "Ingrese el nombre del archivo a generar", font = "arial")
-label.pack()
 
+label = tkinter.Label(window, text = "Ingrese el nombre del archivo a generar", font = "arial",bg = "white")
+label.pack()
 
 
 #PopUp  (About Button)
@@ -47,9 +51,9 @@ def pop_window():
     AboutWindow.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\CodePy\TXTGen\TXTGenerator\icono_new.ico")
     AboutWindow.geometry("200x200")
     
-    about_msg = tkinter.Label(AboutWindow, text="Developed by cpacheco_c 2023")
-    about_msg2 = tkinter.Label(AboutWindow, text="Using Tkinter Library in Python v3.11.4")
-    about_msg2 = tkinter.Label(AboutWindow, text="Non comercial Software ")
+    about_msg = tkinter.Label(AboutWindow, text="Developed by cpacheco_c 2023",bg = "white")
+    about_msg2 = tkinter.Label(AboutWindow, text="Using Tkinter Library in Python v3.11.4",bg = "white")
+    about_msg2 = tkinter.Label(AboutWindow, text="Non comercial Software ",bg = "white")
     about_msg.pack()
     about_msg2.pack()
     button = tk.Button(AboutWindow, text="Cerrar", command=AboutWindow.destroy)
@@ -57,16 +61,16 @@ def pop_window():
 
 def contact_dev():
     AboutWindow = Toplevel()
-    AboutWindow.title("Contacta al desarrollador")
+    AboutWindow.title("Contacta al desarrollador",bg = "white")
     AboutWindow.resizable(False,False)
     AboutWindow.iconbitmap(r"C:\Users\cepc2\OneDrive\Desktop\Projects\CodePy\TXTGen\TXTGenerator\icono_new.ico")
     AboutWindow.geometry("500x300")
 
-    contact_msg = tkinter.Label(AboutWindow, text = "Contacto Comercial")
-    contact_msg2= tkinter.Label(AboutWindow, text="c4dgr10xp@protonmail.com")
+    contact_msg = tkinter.Label(AboutWindow, text = "Contacto Comercial",bg = "white")
+    contact_msg2= tkinter.Label(AboutWindow, text="c4dgr10xp@protonmail.com",bg = "white")
     contact_msg.pack()
     contact_msg2.pack()
-    button = tk.Button(AboutWindow, text="Cerrar", command=AboutWindow.destroy)
+    button = tk.Button(AboutWindow, text="Cerrar",bg = "white", command=AboutWindow.destroy)
     button.pack(pady=5)
 
 
@@ -81,20 +85,20 @@ hide_popup.pack(side="bottom")
 
 
 
-name_input = tkinter.Entry(window,  font = "arial")
+name_input = tkinter.Entry(window,  font = "arial",bg = "white")
 name_input.pack()
 
 
 
 #Ruta de Guardado Custom
-label = tkinter.Label(window, text = "Ruta de Guardado", font = "arial")
+label = tkinter.Label(window, text = "Ruta de Guardado", font = "arial",bg = "white")
 label.pack()
 
 file_input = tkinter.Entry(window)
 file_input.pack()
 
 #Modificar Contenido
-label_editor = tkinter.Label(window, text = "Modificar contenido del archivo", font = "arial")
+label_editor = tkinter.Label(window, text = "Modificar contenido del archivo", font = "arial",bg = "white")
 label_editor.pack()
 
 label_editor_input = tkinter.Entry(window)
@@ -131,7 +135,7 @@ def filename():
         msg.pack()
         window.after(1500, msg.destroy)
     else:
-        print(name_doc)
+        #print(name_doc)
         file_name = name_input.get()
         file_path = file_input.get() # Obtener la ruta de archivo del widget Entry
         create_file(file_path, file_name)
@@ -143,6 +147,7 @@ def filename():
 
 Confirm1_button = tkinter.Button(window, text = "Confirmar", command = filename)
 Confirm1_button.pack()
+
 
 
 #Obtiene Hora
@@ -162,6 +167,7 @@ def create_file(file_path, file_name):
         file.write("TXTGenerator_cpacheco_c_2023")
         file.write(file_blank+"\n")
         file.write(file_input)
+        print("Archivo generado en ",file_path, "de nombre ",file_name, "//Fecha: ",current )
 
 
 #Añadir imagen, requisito pip install pillow
@@ -180,3 +186,4 @@ pic_logo.place(x=30,y=70)
 
 #Bucle main de la ventana
 window.mainloop()
+
